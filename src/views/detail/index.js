@@ -12,13 +12,13 @@ import {
 
 const useStyles = makeStyles({
   wrap: {
-    width: "calc(100% - 20px)",
+    width: "calc(100% - 200px)",
     backgroundColor: "#f0f0f0",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 10,
-    marginRight: 10,
+    marginLeft: 100,
+    marginRight: 100,
 
     p: {
       marginLeft: 15,
@@ -37,6 +37,8 @@ const useStyles = makeStyles({
     display: "flex",
   },
   stat: {
+    marginLeft: 100,
+    marginRight: 100,
     width: "100%",
     height: 500,
     display: "flax",
