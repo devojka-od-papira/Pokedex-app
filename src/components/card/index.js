@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import { CardMedia } from "@material-ui/core";
@@ -7,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +41,7 @@ const useStyles = makeStyles({
 
 function PokeCard({ name, url, single }) {
   const classes = useStyles();
+  const dispatch= useDispatch();
   const [description, setDescription] = useState(null);
 
   useEffect(() => {
@@ -51,6 +54,7 @@ function PokeCard({ name, url, single }) {
         console.log("error", error.response);
       });
   }, [url]);
+
 
   function capitalize(string) {
     return string && string[0].toUpperCase() + string.slice(1);

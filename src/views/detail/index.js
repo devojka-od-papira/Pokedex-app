@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, {  useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -32,18 +31,17 @@ const useStyles = makeStyles({
     marginLeft: 10,
     marginRight: 10,
     fontSize: 30,
+    marginTop: 100,
   },
   statsContainer: {
     display: "flex",
   },
   stat: {
-    marginLeft: 100,
-    marginRight: 100,
-    width: "100%",
+    marginLeft: "10%",
+    marginRight: "10%",
+    width: "80%",
     height: 500,
     display: "flax",
-    // alignItems: "center",
-    // justifyContent: "center",
   },
   img: {
     width: "100%",
@@ -51,6 +49,12 @@ const useStyles = makeStyles({
   },
   chip: {
     margin: "4px 4px",
+  },
+  text:{
+    width: "60%",
+    height: "100%",
+    margin: "5% 20%",
+    fontSize: 20, 
   },
 });
 
@@ -149,9 +153,10 @@ const MyRasponsivePieCanvas = ({ stats }) => (
 function Detail() {
   const dispatch = useDispatch();
   const pokemon = useSelector((state) => state.pokemon.pokemonsData[0]);
+
   const { id } = useParams(); // useParams izvlaci id iz search bar
   const classes = useStyles();
-  console.log("pokemon", pokemon);
+  
   const abilities = useSelector((state) => state.pokemon.abilities);
 
   useEffect(() => {
@@ -206,8 +211,8 @@ function Detail() {
           <MyRasponsivePieCanvas stats={pokemon.stats} />
         </div>
       </div>
-      <div>
-        {/* {abilities
+      <div className={classes.text}>
+        {abilities
           ? abilities.effect_entries
               .filter((entrie) => {
                 if (entrie.language.name !== "de") {
@@ -217,7 +222,7 @@ function Detail() {
               .map((entrie) => {
                 return <div>{entrie.effect}</div>;
               })
-          : null} */}
+          : null}
       </div>
     </div>
   ) : null;
